@@ -4,21 +4,32 @@
 
 Week 1: Fundamentals
 
-Day 1 – Intro to Spark
+## Day 1 – Intro to Spark
 
 Spark architecture
-
 Install PySpark
-
 First SparkSession
 
-Day 2 – RDD Basics
+- SparkSession is the entry point for DataFrame and SQL operations.
+- Master URL:
 
-Create RDDs
+            "local[*]" runs Spark on all available cores locally.
 
-map, filter, reduce, flatMap
+        In production, this is something like "yarn" or "spark://host:port".
 
-Word count example
+        Stop your session after the job is complete to free resources:
+
+
+- ✅ Day 2 – RDD Basics
+
+    Create RDDs
+    map, filter, reduce, flatMap
+    Word count example
+
+    - RDDs are fault-tolerant — Spark can recompute lost partitions using lineage.
+    - Lazy Evaluation — nothing runs until you call an action.
+    - Transformations are chained, forming a DAG (Directed Acyclic Graph).
+    - Use .collect() only for small datasets (it brings data to the driver).
 
 Day 3 – DataFrames 101
 
